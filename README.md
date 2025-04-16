@@ -4,6 +4,10 @@ This repository contains the code and workflow for my Final Year Project (FYP) t
 
 The main goal of this project is to improve ICU mortality prediction by combining structured and unstructured data from the MIMIC-IV database. Structured data includes vitals and ICU admission records, while unstructured data comes from diagnosis descriptions (`long_title`).
 
+This project was completed as part of my Final Year Project under the guidance of Professor Feng Meng Li. Special thanks to the PhysioNet team for providing access to the MIMIC-IV dataset.
+
+Note: No raw patient data is included in this repository. Only code and processed output structures are shared in accordance with MIMIC-IV data usage guidelines.
+
 ---
 
 ## 🛠️ What This Project Includes
@@ -44,14 +48,15 @@ The main goal of this project is to improve ICU mortality prediction by combinin
    - `final_model_training.py` – Full pipeline connected to your PostgreSQL database
 
 ---
+...
 
-## Requirements
+##  Requirements
 
 Install required Python packages:
 
 ```bash
 pip install pandas scikit-learn matplotlib wordcloud psycopg2 sqlalchemy
 
-This project was completed as part of my Final Year Project under the guidance of Professor Mengling 'Mornin' Feng (PhD). Special thanks to the PhysioNet team for providing access to the MIMIC-IV dataset.
 
-Note: No raw patient data is included in this repository. Only code and processed output structures are shared in accordance with MIMIC-IV data usage guidelines.
+
+
