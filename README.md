@@ -10,7 +10,7 @@ Note: No raw patient data is included in this repository. Only code and processe
 
 ---
 
-## 🛠️ What This Project Includes
+## What This Project Includes
 - Loading and cleaning MIMIC-IV data using SQL and Python
 - Preprocessing unstructured diagnostic text
 - TF-IDF vectorisation and clustering of text data
@@ -20,7 +20,7 @@ Note: No raw patient data is included in this repository. Only code and processe
 
 ---
 
-## 📁 Files in This Repository
+## Files in This Repository
 
 | File | Description |
 |------|-------------|
