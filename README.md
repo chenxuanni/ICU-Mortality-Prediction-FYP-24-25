@@ -1,37 +1,42 @@
 # ICU Mortality Prediction using Multimodal Machine Learning
 
-This repository contains the codes and workflow for my Final Year Project (FYP) titled **“Enhancing ICU Mortality Prediction Using Multimodal Machine Learning”**.
+This repository contains the code and workflow for my Final Year Project (FYP) titled **“Enhancing ICU Mortality Prediction Using Multimodal Machine Learning”**.
 
-The main aim of this project is to improve the prediction of ICU mortality by using both structured and unstructured data from the MIMIC-IV database. Structured data includes vitals and patient stay information, while unstructured data refers to diagnosis descriptions (`long_title`).
+The main objective of this project is to predict ICU mortality by combining both structured and unstructured data from the MIMIC-IV database. Structured data includes vitals and ICU stay information, while unstructured data comes from diagnosis descriptions (`long_title`).
 
-## What I did
-- Loaded MIMIC-IV data into PostgreSQL for better data management
-- Cleaned and prepared structured data (e.g., vital signs, ICU stay)
-- Preprocessed the unstructured diagnosis text using TF-IDF
-- Used K-means clustering to group diagnosis terms into meaningful themes
-- Merged both datasets using `hadm_id` as the key
-- Trained a Random Forest model to predict ICU mortality
-- Evaluated the model using accuracy, precision, recall, and F1-score
+## What this project includes:
+- Extracting and cleaning structured data using SQL and Python
+- Preprocessing unstructured diagnosis text using TF-IDF
+- Grouping diagnosis terms into clusters using K-means
+- Feature engineering using one-hot encoding and scaling
+- Merging data for model training
+- Building and evaluating a Random Forest model for mortality prediction
 
 ## Files in this repo
+
 | File | Description |
 |------|-------------|
-| `preprocessing.py` | Code for cleaning structured and unstructured data |
-| `tfidf_clustering.py` | Converts text to TF-IDF and applies K-means clustering |
-| `model_training.py` | Random Forest model training and evaluation |
-| `sql_queries.sql` | SQL queries used to extract and join tables from PostgreSQL |
-| `outputs/` | Folder with word cloud images and feature importance chart |
+| `preprocessing.py` | Cleans the `long_title` text column and saves the cleaned version |
+| `generate_wordcloud.py` | Generates a word cloud from the cleaned diagnosis text |
+| `tfidf_clustering.py` | Applies TF-IDF vectorisation and K-means clustering on diagnosis text |
+| `feature_engineering.sql` | SQL script to one-hot encode ICU units and scale vital signs |
+| `sql_queries.sql` | Contains PostgreSQL queries for extracting and joining structured tables |
+| `model_training.py` | Basic model script that trains a Random Forest using cleaned data |
+| `final_model_training.py` | Connects directly to PostgreSQL, handles full pipeline, and evaluates the final model |
 
-**Note**: No actual patient data is included in this repo. Only code and sample structures are provided.
+**Note:** This repository does not include raw MIMIC-IV data. Only code and workflows are provided in line with data use guidelines.
 
-## How to run
-1. Set up a PostgreSQL database and load relevant MIMIC-IV tables
-2. Edit the database connection string in the scripts
-3. Run the scripts in order:
+## How to use
+1. Set up PostgreSQL and load MIMIC-IV tables
+2. Run `sql_queries.sql` and `feature_engineering.sql` to extract and transform data
+3. Use Python scripts in the following order:
    - `preprocessing.py`
+   - `generate_wordcloud.py`
    - `tfidf_clustering.py`
-   - `model_training.py`
+   - `model_training.py` or `final_model_training.py` (final version)
 
-## Acknowledgement
-This project is part of my final year work under the guidance of **Mengling 'Mornin' Feng (PhD)**. I would also like to thank the team behind MIMIC-IV for providing access to such a useful dataset.
+## Requirements
+Install the following packages:
 
+```bash
+pip install pandas scikit-learn matplotlib wordcloud psycopg2 sqlalchemy
